@@ -1,13 +1,18 @@
 import { BrowserRouter } from "react-router-dom"
 import Pages from "./pages"
+import { UserProvider } from "./context/userContext"
+import GlobalStyles from "./styles/globalStyles";
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Pages />
-    </BrowserRouter>
-  )
+    <UserProvider>
+      <GlobalStyles />
+      <BrowserRouter>
+        <Pages />
+      </BrowserRouter>
+    </UserProvider>
+  );
 }
 
 export default App
