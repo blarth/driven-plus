@@ -10,15 +10,15 @@ import {
   Button,
   StyledLink,
 } from "../../components/Form";
-import useUser from '../../hooks/useUser';
-import Image from './styles';
 
 
-function Login() {
+function SignUp() {
   const navigate = useNavigate();
-  const { signUser } = useUser();
+  
   const [formData, setFormData] = useState({
     email: "",
+    name: "",
+    cpf: "",
     password: "",
   });
   function handleChange({ target }) {
@@ -28,16 +28,8 @@ function Login() {
     e.preventDefault();
     const user = { ...formData };
     try {
-      const {data} = await api.signIn(user)
-      console.log(data)
-      signUser(data);
-      localStorage.setItem("user", JSON.stringify(data));
-      const isSubscripted = data.membership 
-      if(isSubscripted !== null){
-        navigate('/home')
-      }
-      navigate('subscription')
-    console.log(data)
+      await api.signUp(user)
+      navigate('/')
     } catch (error) {
       console.log(error);
       alert("erro, muda la dps")
@@ -46,8 +38,24 @@ function Login() {
 
   return (
     <Container>
-      <Image src={logo}></Image>
+      
       <Form onSubmit={(e) => handleSubmit(e)}>
+        <Input
+          type="text"
+          placeholder="Nome"
+          onChange={(e) => handleChange(e)}
+          name="name"
+          value={formData.name}
+          required
+        />
+        <Input
+          type="number"
+          placeholder="CPF"
+          onChange={(e) => handleChange(e)}
+          name="cpf"
+          value={formData.cpf}
+          required
+        />
         <Input
           type="email"
           placeholder="E-mail"
@@ -64,14 +72,11 @@ function Login() {
           value={formData.password}
           required
         />
-
-        <Button type="submit">ENTRAR</Button>
-        <StyledLink to="/sign-up">
-          Não possui uma conta? Cadastre-se!
-        </StyledLink>
+        <Button type="submit">CADASTRAR</Button>
+        <StyledLink to="/">Já possuí uma conta? Entre</StyledLink>
       </Form>
     </Container>
   );
 }
 
-export default Login;
+export default SignUp;
