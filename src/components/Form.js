@@ -15,7 +15,7 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  gap: 10px;
   width: 80%;
 
   margin-bottom: 20px;
@@ -25,7 +25,8 @@ const Form = styled.form`
 const Input = styled.input`
   all: unset;
   width: 100%;
-  padding: 12px 0 12px 6px;
+  min-height: 52px;
+  padding: 0px 0 0px 15px;
   margin-bottom: 12px;
 
   display: flex;
@@ -34,7 +35,7 @@ const Input = styled.input`
 
   border-radius: 6px;
 
-  color: #9f9f9f;
+  color: #7e7e7e;
   font-size: 16px;
   font-weight: 700;
 
@@ -55,16 +56,12 @@ const Button = styled.button`
   background-color: #ff4791;
 
   color: white;
-  font-size: 27px;
+  font-size: 14px;
   font-weight: 700;
 
   border-radius: 6px;
 
   cursor: pointer;
-
-  :hover {
-    font-size: 26px;
-  }
 `;
 const StyledLink = styled(Link)`
   all: unset;
