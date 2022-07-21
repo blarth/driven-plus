@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const globalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   
 *,
 *::before,
@@ -38,6 +38,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background-color: #0e0e13;
 }
 
 
@@ -77,6 +78,7 @@ select {
 }
 
 
+
 `;
 
-export default globalStyles
+export default GlobalStyles;
