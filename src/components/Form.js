@@ -36,7 +36,7 @@ const Input = styled.input`
   border-radius: 6px;
 
   color: #7e7e7e;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
 
   background-color: white;
@@ -46,7 +46,7 @@ const Input = styled.input`
 const Button = styled.button`
   all: unset;
 
-  width: 100%;
+  width: 105%;
   height: 50px;
 
   display: flex;
