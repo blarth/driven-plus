@@ -33,7 +33,7 @@ function SignUp() {
       navigate('/')
     } catch (error) {
       console.log(error);
-      alert("erro, muda la dps")
+      alert(error.response.data);
     }
   }
 

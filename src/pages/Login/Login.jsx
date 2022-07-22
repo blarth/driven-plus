@@ -39,7 +39,7 @@ function Login() {
     console.log(data)
     } catch (error) {
       console.log(error);
-      alert("erro, muda la dps")
+     alert(error.response.data);
     }
   }
 

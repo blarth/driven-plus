@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Container } from '../../components/Form'
 import useUser from '../../hooks/useUser'
 import api from '../../services/api'
 import { ContainerSub, Text } from './style'
 
 export default function Subscriptions() {
+  const navigate = useNavigate()
   const [data, setData] = useState(null)
   const {user} = useUser()
 

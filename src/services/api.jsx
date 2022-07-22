@@ -19,8 +19,22 @@ async function signUp(data) {
   return
 }
 async function subscriptions(token) {
-  console.log(token)
+  
   const response = await axios.get(`${VITE_BASE_URL}subscriptions/memberships`, createConfig(token));
+  return response
+}
+async function subscription(token, id) {
+  
+  const response = await axios.get(`${VITE_BASE_URL}subscriptions/memberships/${id}`, createConfig(token));
+  return response
+}
+async function postSubscription(data, token) {
+  
+  const response = await axios.post(
+    `${VITE_BASE_URL}subscriptions`,
+    data,
+    createConfig(token)
+  );
   return response
 }
 
@@ -29,5 +43,7 @@ async function subscriptions(token) {
    signIn,
    signUp,
    subscriptions,
+   subscription,
+   postSubscription,
  };
 export default api
