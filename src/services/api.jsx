@@ -15,13 +15,19 @@ async function signIn(data) {
   return response;
 }
 async function signUp(data) {
-  const response = await axios.post(`${VITE_BASE_URL}auth/sign-up`, data);
+  await axios.post(`${VITE_BASE_URL}auth/sign-up`, data);
   return
+}
+async function subscriptions(token) {
+  console.log(token)
+  const response = await axios.get(`${VITE_BASE_URL}subscriptions/memberships`, createConfig(token));
+  return response
 }
 
 
  const api = {
-  signIn,
-  signUp
-}
+   signIn,
+   signUp,
+   subscriptions,
+ };
 export default api

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import api from '../../services/api';
 import logo from "../../assets/Driven_white.png";
@@ -16,7 +16,7 @@ import Image from './styles';
 
 function Login() {
   const navigate = useNavigate();
-  const { signUser } = useUser();
+  const { signUser, user } = useUser();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,14 +29,13 @@ function Login() {
     const user = { ...formData };
     try {
       const {data} = await api.signIn(user)
-      console.log(data)
       signUser(data);
       localStorage.setItem("user", JSON.stringify(data));
       const isSubscripted = data.membership 
       if(isSubscripted !== null){
         navigate('/home')
       }
-      navigate('subscription')
+      navigate("/memberships");
     console.log(data)
     } catch (error) {
       console.log(error);
@@ -44,6 +43,11 @@ function Login() {
     }
   }
 
+  useEffect(() => {
+    console.log(user);
+    if (user.membership === null) navigate("/subscriptions");
+    if (user.membership !== null) navigate("/home");
+  }, []);
   return (
     <Container>
       <Image src={logo}></Image>

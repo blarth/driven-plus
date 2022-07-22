@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import api from '../../services/api';
-import logo from "../../assets/Driven_white.png";
 import {
   
   Container,
@@ -10,10 +9,12 @@ import {
   Button,
   StyledLink,
 } from "../../components/Form";
+import useUser from '../../hooks/useUser';
 
 
 function SignUp() {
   const navigate = useNavigate();
+  const {user} = useUser()
   
   const [formData, setFormData] = useState({
     email: "",

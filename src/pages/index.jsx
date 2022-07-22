@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import Subscription from "./Subscription";
+
+import Subscriptions from "./Subscriptions";
 
 
 export default function Pages(){
@@ -10,7 +11,7 @@ export default function Pages(){
     <Routes>
       <Route path="/" element={<Login />}/>
       <Route path="/sign-up" element={<SignUp />}/>
-      <Route path="/subscription" element={<Subscription />}/>
+      <Route path="/subscriptions" element={<Subscriptions />}/>
     </Routes>
   )
 }
