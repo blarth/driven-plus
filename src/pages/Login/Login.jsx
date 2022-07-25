@@ -32,21 +32,23 @@ function Login() {
       signUser(data);
       localStorage.setItem("user", JSON.stringify(data));
       const isSubscripted = data.membership 
+      console.log(isSubscripted !== null);
       if(isSubscripted !== null){
         navigate('/home')
+        return
       }
-      navigate("/memberships");
-    console.log(data)
+      navigate("/subscriptions");
     } catch (error) {
       console.log(error);
-     alert(error.response.data);
+     alert(error.response.data.message);
     }
   }
 
   useEffect(() => {
-    console.log(user);
-    if (user.membership === null) navigate("/subscriptions");
-    if (user.membership !== null) navigate("/home");
+    
+    if (user?.membership === null) navigate("/subscriptions");
+    if (user?.membership !== null && user?.membership!==undefined) navigate("/home");
+
   }, []);
   return (
     <Container>

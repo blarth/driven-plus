@@ -38,6 +38,14 @@ async function postSubscription(data, token) {
   return response
 }
 
+async function deleteSubscription(token){
+  await axios.delete(
+    `${VITE_BASE_URL}subscriptions`,
+    createConfig(token)
+  );
+}
+
+
 
  const api = {
    signIn,
@@ -45,5 +53,6 @@ async function postSubscription(data, token) {
    subscriptions,
    subscription,
    postSubscription,
+   deleteSubscription,
  };
 export default api
