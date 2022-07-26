@@ -15,6 +15,8 @@ export default function Pages(){
       <Route path="/subscriptions" element={<Subscriptions />}/>
       <Route path="/subscription/:id" element={<Subscription />}/>
       <Route path="/home" element={<Home />}/>
+      <Route path="/users/:id" element={<User />}/>
+      <Route path="/users/:id/update" element={<UpdateUser />}/>
     </Routes>
   )
 }
