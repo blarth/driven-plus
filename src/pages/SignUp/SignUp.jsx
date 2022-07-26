@@ -1,45 +1,40 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom'
-import api from '../../services/api';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import api from '../../services/api'
 import {
-  
   Container,
   Form,
   Input,
   Button,
   StyledLink,
-} from "../../components/Form";
-import useUser from '../../hooks/useUser';
-
+} from '../../components/Form'
 
 function SignUp() {
-  const navigate = useNavigate();
-  const {user} = useUser()
-  
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    cpf: "",
-    password: "",
-  });
+    email: '',
+    name: '',
+    cpf: '',
+    password: '',
+  })
   function handleChange({ target }) {
-    setFormData({ ...formData, [target.name]: target.value });
+    setFormData({ ...formData, [target.name]: target.value })
   }
   async function handleSubmit(e) {
-    e.preventDefault();
-    const user = { ...formData };
+    e.preventDefault()
+    const user = { ...formData }
     try {
       await api.signUp(user)
       navigate('/')
     } catch (error) {
-      console.log(error);
-      alert(error.response.data.message);
+      console.log(error)
+      alert(error.response.data.message)
     }
   }
 
   return (
     <Container>
-      
       <Form onSubmit={(e) => handleSubmit(e)}>
         <Input
           type="text"
@@ -77,7 +72,7 @@ function SignUp() {
         <StyledLink to="/">Já possuí uma conta? Entre</StyledLink>
       </Form>
     </Container>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

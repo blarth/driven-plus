@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   
@@ -79,6 +79,6 @@ select {
 
 
 
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

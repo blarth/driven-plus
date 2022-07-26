@@ -1,3 +1,3 @@
-import Subscriptions from "./Subscriptions";
+import Subscriptions from './Subscriptions'
 
-export default Subscriptions;
+export default Subscriptions

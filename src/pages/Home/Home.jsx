@@ -1,23 +1,30 @@
-import React from "react";
-import { Avatar, Footer, Header, Logo, Title, Container, Wrapper } from "./style";
-import { Container as ContainerButton } from "./Perks/style"; 
-import useUser from "../../hooks/useUser";
-import avatar from "../../assets/user.svg";
-import Perks from "./Perks";
-import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import {
+  Avatar,
+  Footer,
+  Header,
+  Logo,
+  Title,
+  Container,
+  Wrapper,
+} from './style'
+import { Container as ContainerButton } from './Perks/style'
+import useUser from '../../hooks/useUser'
+import avatar from '../../assets/user.svg'
+import Perks from './Perks'
+import api from '../../services/api'
 
 export default function Home() {
-  const { user, signUser } = useUser();
+  const { user, signUser } = useUser()
   const navigate = useNavigate()
-  async function handleCancel(){
+  async function handleCancel() {
     try {
       api.deleteSubscription()
-      signUser({...user, membership : null})
+      signUser({ ...user, membership: null })
       navigate('/subscriptions')
-
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response.data.message)
     }
   }
 
@@ -33,14 +40,17 @@ export default function Home() {
           <Perks title={el.title} link={el.link} />
         ))}
         <Footer>
-          <ContainerButton onClick={() => navigate("/subscriptions")}>
+          <ContainerButton onClick={() => navigate('/subscriptions')}>
             <p>Mudar plano</p>
           </ContainerButton>
-          <ContainerButton onClick={handleCancel} style={{background : '#FF4747'}}>
+          <ContainerButton
+            onClick={() => handleCancel}
+            style={{ background: '#FF4747' }}
+          >
             <p>Cancelar plano</p>
           </ContainerButton>
         </Footer>
       </Wrapper>
     </Container>
-  );
+  )
 }

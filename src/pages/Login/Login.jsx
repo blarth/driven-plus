@@ -1,54 +1,51 @@
-import React, {useState, useEffect} from 'react';
-import {useNavigate} from 'react-router-dom'
-import api from '../../services/api';
-import logo from "../../assets/Driven_white.png";
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import api from '../../services/api'
+import logo from '../../assets/Driven_white.png'
 import {
-  
   Container,
   Form,
   Input,
   Button,
   StyledLink,
-} from "../../components/Form";
-import useUser from '../../hooks/useUser';
-import Image from './styles';
-
+} from '../../components/Form'
+import useUser from '../../hooks/useUser'
+import Image from './styles'
 
 function Login() {
-  const navigate = useNavigate();
-  const { signUser, user } = useUser();
+  const navigate = useNavigate()
+  const { signUser, user } = useUser()
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+    email: '',
+    password: '',
+  })
   function handleChange({ target }) {
-    setFormData({ ...formData, [target.name]: target.value });
+    setFormData({ ...formData, [target.name]: target.value })
   }
   async function handleSubmit(e) {
-    e.preventDefault();
-    const user = { ...formData };
+    e.preventDefault()
+    const userDTO = { ...formData }
     try {
-      const {data} = await api.signIn(user)
-      signUser(data);
-      localStorage.setItem("user", JSON.stringify(data));
-      const isSubscripted = data.membership 
-      console.log(isSubscripted !== null);
-      if(isSubscripted !== null){
+      const { data } = await api.signIn(userDTO)
+      signUser(data)
+      localStorage.setItem('user', JSON.stringify(data))
+      const isSubscripted = data.membership
+      console.log(isSubscripted !== null)
+      if (isSubscripted !== null) {
         navigate('/home')
         return
       }
-      navigate("/subscriptions");
+      navigate('/subscriptions')
     } catch (error) {
-     alert(error.response.data.message);
+      alert(error.response.data.message)
     }
   }
 
   useEffect(() => {
-    
-    if (user?.membership === null) navigate("/subscriptions");
-    if (user?.membership !== null && user?.membership!==undefined) navigate("/home");
-
-  }, []);
+    if (user?.membership === null) navigate('/subscriptions')
+    if (user?.membership !== null && user?.membership !== undefined)
+      navigate('/home')
+  }, [])
   return (
     <Container>
       <Image src={logo}></Image>
@@ -76,7 +73,7 @@ function Login() {
         </StyledLink>
       </Form>
     </Container>
-  );
+  )
 }
 
-export default Login;
+export default Login

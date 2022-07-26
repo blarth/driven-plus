@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100vh;
-`;
+`
 
 const Form = styled.form`
   display: flex;
@@ -19,8 +19,8 @@ const Form = styled.form`
   width: 80%;
 
   margin-bottom: 20px;
-  font-family: "Roboto", "sans-serif";
-`;
+  font-family: 'Roboto', 'sans-serif';
+`
 
 const Input = styled.input`
   all: unset;
@@ -42,7 +42,7 @@ const Input = styled.input`
   background-color: white;
 
   cursor: text;
-`;
+`
 const Button = styled.button`
   all: unset;
 
@@ -62,7 +62,7 @@ const Button = styled.button`
   border-radius: 6px;
 
   cursor: pointer;
-`;
+`
 const StyledLink = styled(Link)`
   all: unset;
   box-sizing: border-box;
@@ -78,9 +78,9 @@ const StyledLink = styled(Link)`
 
   font-weight: 400;
 
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 
   text-decoration: underline;
-`;
+`
 
-export { Container, Form, Input, Button, StyledLink };
+export { Container, Form, Input, Button, StyledLink }
