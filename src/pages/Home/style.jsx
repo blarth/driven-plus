@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -7,14 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100vh;
-`;
+`
 
 export const Header = styled.header`
   width: 90%;
   display: flex;
   justify-content: flex-start;
   height: 85px;
-
 `
 
 export const Avatar = styled.img`
@@ -25,12 +24,9 @@ export const Avatar = styled.img`
   height: 28px;
 `
 export const Logo = styled.img`
-  
-    width: 70px;
-    height: 70px;
-    
-  
-`;
+  width: 70px;
+  height: 70px;
+`
 
 export const Title = styled.p`
   color: #ffffff;
@@ -41,7 +37,7 @@ export const Title = styled.p`
   line-height: 28px;
   margin-bottom: 53px;
   text-align: center;
-`;
+`
 
 export const Footer = styled.div`
   width: 100%;
@@ -50,9 +46,8 @@ export const Footer = styled.div`
   height: auto;
   justify-content: space-around;
   position: fixed;
-  bottom : 12px;
-
-`;
+  bottom: 12px;
+`
 export const Wrapper = styled.div`
   width: 80%;
   margin-bottom: 12px;

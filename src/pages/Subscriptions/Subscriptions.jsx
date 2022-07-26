@@ -8,38 +8,32 @@ import { ContainerSub, Text } from './style'
 export default function Subscriptions() {
   const navigate = useNavigate()
   const [data, setData] = useState(null)
-  const {user} = useUser()
+  const { user } = useUser()
 
-  
   useEffect(() => {
     getData()
   }, [])
 
-  async function getData(){
-    const { data } = await api.subscriptions(user.token);
-    setData(data)
+  async function getData() {
+    const { dataAPI } = await api.subscriptions(user.token)
+    setData(dataAPI)
   }
-  
-  if(data === null) return <h1>Loading</h1>
 
+  if (data === null) return <h1>Loading</h1>
 
   return (
-    <>
-      <Container>
-        <Text>Escolha seu Plano</Text>
-        {data.map((el) => {
-          return (
-            <ContainerSub
-              onClick={() => {
-                navigate(`/subscription/${el.id}`);
-              }}
-            >
-              <img src={el.image}></img>
-              <p>R$ {el.price}</p>
-            </ContainerSub>
-          );
-        })}
-      </Container>
-    </>
-  );
+    <Container>
+      <Text>Escolha seu Plano</Text>
+      {data.map((el) => (
+        <ContainerSub
+          onClick={() => {
+            navigate(`/subscription/${el.id}`)
+          }}
+        >
+          <img src={el.image} alt="Plan Logo"></img>
+          <p>R$ {el.price}</p>
+        </ContainerSub>
+      ))}
+    </Container>
+  )
 }

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Text = styled.p`
   font-family: Roboto;
@@ -8,7 +8,7 @@ export const Text = styled.p`
   text-align: left;
   color: #ffffff;
   margin-bottom: 24px;
-`;
+`
 
 export const ContainerSub = styled.div`
   min-height: 180px;
@@ -31,10 +31,6 @@ export const ContainerSub = styled.div`
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
-    padding-left:  10px;
+    padding-left: 10px;
   }
-`;
-
-
-
- 
+`

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 52px;
@@ -16,4 +16,4 @@ export const Container = styled.div`
     line-height: 16px;
     color: #ffffff;
   }
-`;
+`

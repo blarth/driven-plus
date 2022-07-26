@@ -1,3 +1,3 @@
-import Perks from "./Perks";
+import Perks from './Perks'
 
-export default Perks;
+export default Perks
